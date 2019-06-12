@@ -1,0 +1,12 @@
+--- js/src/jsinterp.cpp.orig	2014-02-16 03:06:39.000000000 -0800
++++ js/src/jsinterp.cpp	2014-02-16 03:07:24.000000000 -0800
+@@ -3664,7 +3664,9 @@
+ BEGIN_CASE(JSOP_LEAVEFORLETIN)
+ BEGIN_CASE(JSOP_LEAVEBLOCKEXPR)
+ {
++#ifdef DEBUG
+     DebugOnly<uint32_t> blockDepth = regs.fp()->blockChain().stackDepth();
++#endif
+ 
+     regs.fp()->popBlock(cx);
+ 
