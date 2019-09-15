@@ -1,0 +1,22 @@
+--- tools/ccopts.sh.orig	2019-09-15 20:51:21.928579848 +1000
++++ tools/ccopts.sh	2019-09-15 20:50:47.452677956 +1000
+@@ -353,16 +353,16 @@
+ 	if [ "$GCC_VER" -ge 30 ] ; then
+ 		case $ARCH in
+ 			'x86_64')
+-				CCARGS="$CCARGS -march=opteron -fPIC" ;;
++				CCARGS="$CCARGS -march=corei7 -fPIC" ;;
+ 
+ 			'i686')
+ 				CCARGS="$CCARGS -march=pentiumpro" ;;
+ 
+ 			*)
+-				CCARGS="$CCARGS -march=pentium" ;;
++				CCARGS="$CCARGS -march=core2" ;;
+ 		esac ;
+ 	else
+-		CCARGS="$CCARGS -mcpu=pentium" ;
++		CCARGS="$CCARGS -march=core2" ;
+ 	fi ;
+ fi
+ 
